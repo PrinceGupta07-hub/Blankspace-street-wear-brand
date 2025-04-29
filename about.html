@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Story - Blankspacee Streetwear</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .about-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px 80px;
+    }
+    
+    .about-hero {
+      position: relative;
+      height: 60vh;
+      min-height: 400px;
+      overflow: hidden;
+      margin-bottom: 60px;
+      border-radius: 15px;
+    }
+    
+    .about-hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.7);
+    }
+    
+    .about-hero-text {
+      position: absolute;
+      bottom: 40px;
+      left: 40px;
+      z-index: 2;
+    }
+    
+    .about-hero-text h1 {
+      font-size: 56px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      font-weight: 800;
+      color: #fff;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+    }
+    
+    .about-hero-text p {
+      font-size: 18px;
+      max-width: 600px;
+      color: #eee;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+    }
+    
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      margin-bottom: 80px;
+    }
+    
+    @media (max-width: 768px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .about-content h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+      color: #ff6a00;
+    }
+    
+    .about-content p {
+      margin-bottom: 24px;
+      font-size: 17px;
+      line-height: 1.7;
+      color: #ccc;
+    }
+    
+    .about-image {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 15px 25px rgba(0,0,0,0.3);
+      height: 100%;
+    }
+    
+    .about-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .about-image:hover img {
+      transform: scale(1.05);
+    }
+    
+    .values-section {
+      margin: 70px 0;
+      text-align: center;
+    }
+    
+    .values-section h2 {
+      font-size: 32px;
+      margin-bottom: 40px;
+      color: #ff6a00;
+      text-transform: uppercase;
+    }
+    
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+    
+    @media (max-width: 768px) {
+      .values-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .value-card {
+      background: rgba(18, 18, 18, 0.7);
+      border-radius: 12px;
+      padding: 30px;
+      text-align: center;
+      border: 1px solid #333;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .value-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 30px rgba(255, 106, 0, 0.2);
+      border-color: #ff6a00;
+    }
+    
+    .value-icon {
+      font-size: 40px;
+      margin-bottom: 20px;
+      color: #ff6a00;
+    }
+    
+    .value-card h3 {
+      font-size: 22px;
+      margin-bottom: 15px;
+      color: #fff;
+    }
+    
+    .value-card p {
+      color: #aaa;
+      line-height: 1.6;
+    }
+    
+    .team-section {
+      margin: 70px 0;
+    }
+    
+    .team-section h2 {
+      font-size: 32px;
+      text-align: center;
+      margin-bottom: 40px;
+      color: #ff6a00;
+      text-transform: uppercase;
+    }
+    
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+    }
+    
+    @media (max-width: 992px) {
+      .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .team-member {
+      text-align: center;
+    }
+    
+    .team-photo {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-bottom: 15px;
+      border: 3px solid #333;
+      transition: border-color 0.3s ease;
+    }
+    
+    .team-member:hover .team-photo {
+      border-color: #ff6a00;
+    }
+    
+    .team-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .team-member h3 {
+      font-size: 20px;
+      margin-bottom: 5px;
+      color: #fff;
+    }
+    
+    .team-member p {
+      color: #ff6a00;
+      font-size: 16px;
+    }
+    
+    .cta-section {
+      background: linear-gradient(45deg, #ff6a00, #ff3c00);
+      border-radius: 15px;
+      padding: 60px 40px;
+      text-align: center;
+      margin: 70px 0;
+    }
+    
+    .cta-section h2 {
+      font-size: 36px;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+    
+    .cta-section p {
+      font-size: 18px;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 30px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .cta-btn {
+      display: inline-block;
+      background: #000;
+      color: #fff;
+      padding: 15px 30px;
+      border-radius: 30px;
+      font-size: 18px;
+      font-weight: bold;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+    }
+    
+    .cta-btn:hover {
+      background: #222;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+    
+    /* Keep your existing header and footer styles */
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <div class="logo">Blankspacee</div>
+    <nav class="navbar">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="shop.html">Shop</a>
+      <a href="contact.html">Contact</a>
+      <a href="login.html" class="login-btn">Login</a>
+      <a href="cart.html">Cart</a>
+      <div class="cart">🛒 <span id="cart-count">0</span></div>
+    </nav>
+  </header>
+
+  <div class="about-container">
+    <div class="about-hero">
+      <img src="images/Blankspace.jpg" alt="Blankspacee Streetwear Culture" />
+      <div class="about-hero-text">
+        <h1>Our Story</h1>
+        <p>Born from the streets. Made for the culture.</p>
+      </div>
+    </div>
+    
+    <div class="about-grid">
+      <div class="about-content">
+        <h2>From Zero to Streetwear</h2>
+        <p>Born in 2020 from the streets and inspired by urban culture, Blankspacee emerged as more than just another clothing brand — we're a movement. Founded by skaters, artists, and music lovers, we set out to create streetwear that represents the raw energy of youth culture.</p>
+        <p>Our journey began in a tiny garage in Mumbai, with nothing but a screen printer, raw passion, and a vision to create clothing that empowers self-expression. What started as limited drops for friends quickly gained traction as more people connected with our authentic approach to streetwear.</p>
+        <p>Today, Blankspacee stands as a testament to creativity, individuality, and bold expression through fashion. Every piece we create carries the soul of the streets and the spirit of those who dare to stand out.</p>
+      </div>
+      <div class="about-image">
+        <img src="images/Shoemake.jpg" alt="Blankspacee Origins" />
+      </div>
+    </div>
+    
+    <div class="about-grid">
+      <div class="about-image">
+        <img src="images/capmake.jpg" alt="Blankspacee Design Process" />
+      </div>
+      <div class="about-content">
+        <h2>Our Design Philosophy</h2>
+        <p>At Blankspacee, we believe streetwear is more than just clothing — it's a canvas for personal expression. Our designs draw inspiration from skateboarding, hip-hop, graffiti art, and contemporary urban culture.</p>
+        <p>Quality is non-negotiable. Every hoodie, tee, and accessory is crafted using premium materials that ensure comfort and durability. We obsess over details, from custom-developed fabrics to specialized printing techniques that make our graphics pop.</p>
+        <p>We don't follow trends — we create them. Our design team works tirelessly to push boundaries, experimenting with cuts, colors, and concepts that challenge conventional streetwear while staying true to the culture that inspires us.</p>
+      </div>
+    </div>
+    
+    <div class="values-section">
+      <h2>What We Stand For</h2>
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-icon">🔥</div>
+          <h3>Authenticity</h3>
+          <p>We keep it real. No compromises, no shortcuts. Every design, collaboration, and decision reflects our commitment to genuine street culture.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">♻️</div>
+          <h3>Sustainability</h3>
+          <p>We're making moves toward eco-friendly production methods and materials, because the streets deserve a cleaner future.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">🤝</div>
+          <h3>Community</h3>
+          <p>We support local artists, skaters, and creators. The Blankspacee family extends beyond our team to everyone who rocks our gear.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="team-section">
+      <h2>The Crew</h2>
+      <div class="team-grid">
+        <div class="team-member">
+          <div class="team-photo">
+            <img src="images/prince.jpg" alt="Raj - Founder" />
+          </div>
+          <h3>Prince</h3>
+          <p>Founder & Creative Director</p>
+        </div>
+        <div class="team-member">
+          <div class="team-photo">
+            <img src="images/Sandesh.jpg" alt="Priya - Design Lead" />
+          </div>
+          <h3>Sandesh</h3>
+          <p>Head of Design</p>
+        </div>
+        <div class="team-member">
+          <div class="team-photo">
+            <img src="images/het.jpg" alt="Dev - Marketing" />
+          </div>
+          <h3>Het</h3>
+          <p>Marketing Strategist</p>
+        </div>
+        <div class="team-member">
+          <div class="team-photo">
+            <img src="images/himsu.jpg" alt="Zara - Community Manager" />
+          </div>
+          <h3>Himanshu</h3>
+          <p>Community Manager</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="cta-section">
+      <h2>Join The Movement</h2>
+      <p>Be part of our community and stay updated with exclusive drops, behind-the-scenes content, and special events.</p>
+      <a href="#collection" class="cta-btn">Shop the Latest</a>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="newsletter">
+      <h2>JOIN THE NEWSLETTER FOR EXCLUSIVE UPDATES</h2>
+      <div class="subscribe-box">
+        <input type="email" placeholder="Your email address" />
+        <button>SUBSCRIBE →</button>
+      </div>
+    </div>
+  
+    <div class="footer-grid">
+      <div class="footer-column">
+        <h4>Cool Stuff</h4>
+        <ul>
+          <li>About Us</li>
+          <li>Blog</li>
+          <li>New Arrivals</li>
+          <li>Apparel</li>
+          <li>Accessories</li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Boring Stuff</h4>
+        <ul>
+          <li>Track Order</li>
+          <li>Returns</li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Legal</h4>
+        <ul>
+          <li>Terms & Conditions</li>
+          <li>Privacy Policy</li>
+          <li>Shipping Policy</li>
+          <li>Returns Policy</li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Let's Connect</h4>
+        <ul>
+          <li>WhatsApp</li>
+          <li>Email</li>
+          <li>Contact Us</li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Store Locator</h4>
+        <ul>
+          <li>Mumbai</li>
+          <li>Bangalore</li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

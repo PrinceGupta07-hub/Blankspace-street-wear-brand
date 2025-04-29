@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Product Details - Blankspacee</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Product Detail Page Specific Styles */
+    .product-container {
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 2rem;
+    }
+    
+    .product-images {
+      flex: 1;
+      min-width: 300px;
+    }
+    
+    .main-image {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+    
+    .image-thumbnails {
+      display: flex;
+      gap: 0.5rem;
+    }
+    
+    .thumbnail {
+      width: 80px;
+      height: 80px;
+      border-radius: 4px;
+      cursor: pointer;
+      object-fit: cover;
+      border: 2px solid transparent;
+      transition: border 0.2s;
+    }
+    
+    .thumbnail:hover, .thumbnail.active {
+      border: 2px solid #333;
+    }
+    
+    .product-info {
+      flex: 1;
+      min-width: 300px;
+      padding: 0 2rem;
+    }
+    
+    .product-title {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .product-price {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 1.5rem;
+    }
+    
+    .product-description {
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+    
+    .size-selector {
+      margin-bottom: 2rem;
+    }
+    
+    .size-selector h3 {
+      margin-bottom: 0.5rem;
+    }
+    
+    .size-options {
+      display: flex;
+      gap: 0.5rem;
+    }
+    
+    .size-option {
+      border: 1px solid #ddd;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: all 0.2s;
+    }
+    
+    .size-option:hover, .size-option.selected {
+      background-color: #333;
+      color: white;
+    }
+    
+    .quantity-selector {
+      display: flex;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+    
+    .quantity-selector h3 {
+      margin-right: 1rem;
+      margin-bottom: 0;
+    }
+    
+    .quantity-controls {
+      display: flex;
+      align-items: center;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+    
+    .quantity-btn {
+      padding: 0.5rem 1rem;
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+    
+    .quantity-value {
+      padding: 0.5rem 1rem;
+      min-width: 40px;
+      text-align: center;
+    }
+    
+    .add-to-cart-btn {
+      padding: 1rem 2rem;
+      background-color: #333;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.2s;
+      width: 100%;
+      text-transform: uppercase;
+      font-weight: bold;
+      margin-bottom: 1.5rem;
+    }
+    
+    .add-to-cart-btn:hover {
+      background-color: #555;
+    }
+    
+    .product-details {
+      margin-top: 2rem;
+    }
+    
+    .tabs {
+      display: flex;
+      border-bottom: 1px solid #ddd;
+      margin-bottom: 1rem;
+    }
+    
+    .tab {
+      padding: 0.75rem 1.5rem;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+    }
+    
+    .tab.active {
+      border-bottom: 2px solid #333;
+    }
+    
+    .tab-content {
+      display: none;
+      padding: 1rem 0;
+      line-height: 1.6;
+    }
+    
+    .tab-content.active {
+      display: block;
+    }
+    
+    .related-products {
+      margin: 4rem 0;
+      padding: 0 2rem;
+    }
+    
+    .related-products h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+    }
+    
+    .wishlist-btn {
+      background: none;
+      border: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+      margin-bottom: 1.5rem;
+    }
+    
+    .product-meta {
+      margin-top: 2rem;
+      color: #777;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <div class="logo">Blankspacee</div>
+    <nav class="navbar">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="shop.html" class="active">Shop</a>
+      <a href="contact.html">Contact</a>
+      <a href="login.html" class="login-btn">Login</a>
+      <a href="cart.html">Cart</a>
+      <div class="cart">🛒 <span id="cart-count">0</span></div>
+    </nav>
+  </header>
+
+  <div class="product-container">
+    <div class="product-images">
+      <img src="" alt="Product Image" class="main-image" id="main-product-image">
+      <div class="image-thumbnails">
+        <img src="" alt="Thumbnail 1" class="thumbnail active" onclick="changeImage(this)">
+        <img src="" alt="Thumbnail 2" class="thumbnail" onclick="changeImage(this)">
+        <img src="" alt="Thumbnail 3" class="thumbnail" onclick="changeImage(this)">
+        <img src="" alt="Thumbnail 4" class="thumbnail" onclick="changeImage(this)">
+      </div>
+    </div>
+    
+    <div class="product-info">
+      <h1 class="product-title" id="product-title">Product Name</h1>
+      <p class="product-price" id="product-price">₹0</p>
+      <p class="product-description">
+        This premium quality product is designed with both style and comfort in mind. 
+        Perfect for everyday wear, it features a modern cut and high-quality materials 
+        that will keep you looking fresh while feeling comfortable all day long.
+      </p>
+      
+      <div class="size-selector">
+        <h3>Select Size</h3>
+        <div class="size-options">
+          <div class="size-option" onclick="selectSize(this)">S</div>
+          <div class="size-option" onclick="selectSize(this)">M</div>
+          <div class="size-option" onclick="selectSize(this)">L</div>
+          <div class="size-option" onclick="selectSize(this)">XL</div>
+          <div class="size-option" onclick="selectSize(this)">XXL</div>
+        </div>
+      </div>
+      
+      <div class="quantity-selector">
+        <h3>Quantity</h3>
+        <div class="quantity-controls">
+          <button class="quantity-btn" onclick="decreaseQuantity()">-</button>
+          <span class="quantity-value" id="quantity">1</span>
+          <button class="quantity-btn" onclick="increaseQuantity()">+</button>
+        </div>
+      </div>
+      
+      <button class="add-to-cart-btn" onclick="addToCartFromDetails()">Add to Cart</button>
+      <button class="wishlist-btn">♡ Add to Wishlist</button>
+      
+      <div class="product-meta">
+        <p>SKU: <span id="product-sku">BS-12345</span></p>
+        <p>Category: <span id="product-category">Tops</span></p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="product-details">
+    <div class="tabs">
+      <div class="tab active" onclick="openTab(event, 'description')">Description</div>
+      <div class="tab" onclick="openTab(event, 'details')">Details</div>
+      <div class="tab" onclick="openTab(event, 'sizing')">Size Guide</div>
+      <div class="tab" onclick="openTab(event, 'delivery')">Shipping & Returns</div>
+    </div>
+    
+    <div id="description" class="tab-content active">
+      <p>
+        Elevate your streetwear game with this premium quality item from Blankspacee. 
+        Featuring a contemporary design and high-quality materials, this piece offers 
+        both style and comfort for your everyday urban adventures.
+      </p>
+      <p>
+        The versatile design makes it easy to pair with other items in your wardrobe, 
+        creating countless stylish combinations. Whether you're hanging out with friends 
+        or making a statement in the city, this essential piece has got you covered.
+      </p>
+    </div>
+    
+    <div id="details" class="tab-content">
+      <h3>Materials & Care</h3>
+      <ul>
+        <li>100% Premium Cotton</li>
+        <li>Machine wash cold</li>
+        <li>Do not bleach</li>
+        <li>Tumble dry low</li>
+        <li>Cool iron if needed</li>
+      </ul>
+    </div>
+    
+    <div id="sizing" class="tab-content">
+      <h3>Size Guide</h3>
+      <table>
+        <tr>
+          <th>Size</th>
+          <th>Chest (inches)</th>
+          <th>Length (inches)</th>
+          <th>Sleeve (inches)</th>
+        </tr>
+        <tr>
+          <td>S</td>
+          <td>36-38</td>
+          <td>27</td>
+          <td>24</td>
+        </tr>
+        <tr>
+          <td>M</td>
+          <td>38-40</td>
+          <td>28</td>
+          <td>25</td>
+        </tr>
+        <tr>
+          <td>L</td>
+          <td>40-42</td>
+          <td>29</td>
+          <td>26</td>
+        </tr>
+        <tr>
+          <td>XL</td>
+          <td>42-44</td>
+          <td>30</td>
+          <td>27</td>
+        </tr>
+        <tr>
+          <td>XXL</td>
+          <td>44-46</td>
+          <td>31</td>
+          <td>28</td>
+        </tr>
+      </table>
+    </div>
+    
+    <div id="delivery" class="tab-content">
+      <h3>Shipping Information</h3>
+      <p>Free shipping on all orders above ₹999</p>
+      <p>Standard delivery: 3-5 business days</p>
+      <p>Express delivery (additional ₹150): 1-2 business days</p>
+      
+      <h3>Returns Policy</h3>
+      <p>Returns accepted within 7 days of delivery</p>
+      <p>Item must be unworn, unwashed, and in original packaging</p>
+      <p>For more information, please visit our <a href="#">Returns Policy</a> page.</p>
+    </div>
+  </div>
+  
+  <section class="related-products">
+    <h2>You May Also Like</h2>
+    <div class="related-grid" id="related-products">
+      <!-- Related products will be populated dynamically -->
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="newsletter">
+      <h2>JOIN THE NEWSLETTER FOR EXCLUSIVE UPDATES</h2>
+      <div class="subscribe-box">
+        <input type="email" placeholder="Your email address" />
+        <button>SUBSCRIBE →</button>
+      </div>
+    </div>
+  
+    <div class="footer-grid">
+      <div class="footer-column">
+        <h4>Cool Stuff</h4>
+        <ul>
+          <li>About Us</li>
+          <li>Blog</li>
+          <li>New Arrivals</li>
+          <li>Apparel</li>
+          <li>Accessories</li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Boring Stuff</h4>
+        <ul>
+          <li>Track Order</li>
+          <li>Returns</li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Legal</h4>
+        <ul>
+          <li>Terms & Conditions</li>
+          <li>Privacy Policy</li>
+          <li>Shipping Policy</li>
+          <li>Returns Policy</li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Let's Connect</h4>
+        <ul>
+          <li>WhatsApp</li>
+          <li>Email</li>
+          <li>Contact Us</li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Store Locator</h4>
+        <ul>
+          <li>Mumbai</li>
+          <li>Bangalore</li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // Product data - in a real application, this would be loaded from your database
+    const products = {
+      "1": {
+        name: "Street Hoodie",
+        price: "₹1,299",
+        image: "images/streetstylehoodie.jpg.jpg",
+        category: "tops",
+        sku: "BS-HOOD-01"
+      },
+      "2": {
+        name: "Oversized Tee",
+        price: "₹999",
+        image: "images/Oversizedtee.jpg",
+        category: "tops",
+        sku: "BS-TEE-01"
+      },
+      "3": {
+        name: "Cargo Pants",
+        price: "₹1,499",
+        image: "images/Cargopants.jpg",
+        category: "bottoms",
+        sku: "BS-PANT-01"
+      },
+      "4": {
+        name: "Graphic Hoodie",
+        price: "₹1,599",
+        image: "images/Graphichoodie.jpg",
+        category: "tops",
+        sku: "BS-HOOD-02"
+      },
+      "5": {
+        name: "Denim Jacket",
+        price: "₹1,799",
+        image: "images/denim-jacket.jpg",
+        category: "outerwear",
+        sku: "BS-JACK-01"
+      },
+      "6": {
+        name: "Beanie",
+        price: "₹499",
+        image: "images/beanie.jpg",
+        category: "accessories",
+        sku: "BS-ACC-01"
+      },
+      "7": {
+        name: "Street Sneakers",
+        price: "₹2,999",
+        image: "images/sneakers.jpg",
+        category: "footwear",
+        sku: "BS-SHOE-01"
+      },
+      "8": {
+        name: "Crossbody Bag",
+        price: "₹899",
+        image: "images/crossbody-bag.jpg",
+        category: "accessories",
+        sku: "BS-ACC-02"
+      },
+      "9": {
+        name: "Ripped Jeans",
+        price: "₹1,299",
+        image: "images/ripped-jeans.jpg",
+        category: "bottoms",
+        sku: "BS-PANT-02"
+      },
+      "10": {
+        name: "Bucket Hat",
+        price: "₹499",
+        image: "images/bucket-hat.jpg",
+        category: "accessories",
+        sku: "BS-ACC-03"
+      },
+      "11": {
+        name: "Graphic Tee",
+        price: "₹1,199",
+        image: "images/graphic-tee.jpg",
+        category: "tops",
+        sku: "BS-TEE-02"
+      },
+      "12": {
+        name: "Street Joggers",
+        price: "₹1,699",
+        image: "images/joggers.jpg",
+        category: "bottoms",
+        sku: "BS-PANT-03"
+      },
+      "13": {
+        name: "Snapback Cap",
+        price: "₹799",
+        image: "images/snapback.jpg",
+        category: "accessories",
+        sku: "BS-ACC-04"
+      },
+      "14": {
+        name: "Bomber Jacket",
+        price: "₹2,499",
+        image: "images/bomber-jacket.jpg",
+        category: "outerwear",
+        sku: "BS-JACK-02"
+      },
+      "15": {
+        name: "High Top Sneakers",
+        price: "₹2,499",
+        image: "images/high-tops.jpg",
+        category: "footwear",
+        sku: "BS-SHOE-02"
+      }
+    };
+
+    // Get the product ID from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get('id');
+    
+    // Load product details if ID exists
+    if (productId && products[productId]) {
+      const product = products[productId];
+      
+      // Set product details
+      document.getElementById('product-title').textContent = product.name;
+      document.getElementById('product-price').textContent = product.price;
+      document.getElementById('product-category').textContent = product.category;
+      document.getElementById('product-sku').textContent = product.sku;
+      
+      // Set main image
+      const mainImage = document.getElementById('main-product-image');
+      mainImage.src = product.image;
+      mainImage.alt = product.name;
+      
+      // Set thumbnails (normally these would be different angles)
+      // For now, we'll just set the first thumbnail to the product image
+      const thumbnails = document.querySelectorAll('.thumbnail');
+      thumbnails[0].src = product.image;
+      thumbnails[0].alt = product.name;
+      
+      // Load related products (just showing 4 random products)
+      loadRelatedProducts(productId);
+    } else {
+      // Redirect to shop page if product not found
+      window.location.href = 'shop.html';
+    }
+    
+    // Change main image when clicking on thumbnails
+    function changeImage(element) {
+      document.querySelector('.thumbnail.active').classList.remove('active');
+      element.classList.add('active');
+      document.getElementById('main-product-image').src = element.src;
+    }
+    
+    // Select size
+    function selectSize(element) {
+      const selected = document.querySelector('.size-option.selected');
+      if (selected) {
+        selected.classList.remove('selected');
+      }
+      element.classList.add('selected');
+    }
+    
+    // Quantity controls
+    function increaseQuantity() {
+      const quantityElement = document.getElementById('quantity');
+      let quantity = parseInt(quantityElement.textContent);
+      quantityElement.textContent = quantity + 1;
+    }
+    
+    function decreaseQuantity() {
+      const quantityElement = document.getElementById('quantity');
+      let quantity = parseInt(quantityElement.textContent);
+      if (quantity > 1) {
+        quantityElement.textContent = quantity - 1;
+      }
+    }
+    
+    // Open tab content
+    function openTab(evt, tabName) {
+      // Hide all tab content
+      const tabContents = document.getElementsByClassName('tab-content');
+      for (let i = 0; i < tabContents.length; i++) {
+        tabContents[i].classList.remove('active');
+      }
+      
+      // Remove active class from all tabs
+      const tabs = document.getElementsByClassName('tab');
+      for (let i = 0; i < tabs.length; i++) {
+        tabs[i].classList.remove('active');
+      }
+      
+      // Show the current tab content and mark tab as active
+      document.getElementById(tabName).classList.add('active');
+      evt.currentTarget.classList.add('active');
+    }
+    
+    // Load related products
+    function loadRelatedProducts(currentProductId) {
+      const relatedContainer = document.getElementById('related-products');
+      let relatedHTML = '';
+      let count = 0;
+      
+      // Get the current product's category
+      const currentCategory = products[currentProductId].category;
+      
+      // First try to show products of the same category
+      for (const [id, product] of Object.entries(products)) {
+        if (id !== currentProductId && product.category === currentCategory && count < 4) {
+          relatedHTML += createRelatedProductHTML(id, product);
+          count++;
+        }
+      }
+      
+      // If we need more products, add random ones from other categories
+      if (count < 4) {
+        for (const [id, product] of Object.entries(products)) {
+          if (id !== currentProductId && product.category !== currentCategory && count < 4) {
+            relatedHTML += createRelatedProductHTML(id, product);
+            count++;
+          }
+        }
+      }
+      
+      relatedContainer.innerHTML = relatedHTML;
+    }
+    
+    // Create HTML for related product
+    function createRelatedProductHTML(id, product) {
+      return `
+        <div class="product-card">
+          <a href="product.html?id=${id}">
+            <img src="${product.image}" alt="${product.name}" />
+          </a>
+          <h3>${product.name}</h3>
+          <p class="price">${product.price}</p>
+          <button class="add-to-cart" data-product="${id}">Add to Cart</button>
+        </div>
+      `;
+    }
+    
+    // Add to cart from product details page
+    function addToCartFromDetails() {
+      const selectedSize = document.querySelector('.size-option.selected');
+      if (!selectedSize) {
+        alert('Please select a size');
+        return;
+      }
+      
+      const quantity = parseInt(document.getElementById('quantity').textContent);
+      const cartCount = document.getElementById('cart-count');
+      const currentCount = parseInt(cartCount.textContent);
+      
+      cartCount.textContent = currentCount + quantity;
+      
+      alert(`Added ${quantity} items to cart`);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blankspacee - Streetwear</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="header">
+    <div class="logo">Blankspacee</div>
+    <nav class="navbar">
+      <a href="#home">Home</a>
+      <a href="about.html">About</a>
+      <a href="shop.html">Shop</a>
+      <a href="contact.html">Contact</a>
+      <a href="cart.html">Cart</a>
+      <a href="login.html" class="login-btn">Login</a>
+      
+     
+    </nav>
+  </header>
+
+  <!-- Add this right after your header section and before your existing hero section -->
+<section class="hero-slider">
+    <div class="slider-container">
+      <div class="slider-track">
+        <!-- Slide 1 -->
+        <div class="slider-slide active">
+          <div class="slide-content">
+            <div class="slide-text">
+              <h2>JOGGERS</h2>
+              <p>FOR YOUR OFF DUTY DAYS</p>
+              <a href="shop.html" class="slide-cta">Shop Now</a>
+            </div>
+            <div class="slide-image-container">
+              <img src="images/joggers.jpg" alt="Camo Joggers Left View" class="slide-image left-image">
+              <img src="images/Cargopants.jpg" alt="Camo Joggers Right View" class="slide-image right-image">
+            </div>
+          </div>
+        </div>
+        
+        <!-- Slide 2 -->
+        <div class="slider-slide">
+          <div class="slide-content">
+            <div class="slide-text">
+              <h2>HOODIES</h2>
+              <p>ELEVATE YOUR EVERYDAY STYLE</p>
+              <a href="shop.html" class="slide-cta">Shop Now</a>
+            </div>
+            <div class="slide-image-container">
+              <img src="images/streetstylehoodie.jpg.jpg" alt="Street Hoodie Left View" class="slide-image left-image">
+              <img src="images/Graphichoodie.jpg" alt="Street Hoodie Right View" class="slide-image right-image">
+            </div>
+          </div>
+        </div>
+        
+        <!-- Slide 3 -->
+        <div class="slider-slide">
+          <div class="slide-content">
+            <div class="slide-text">
+              <h2> GRAPHIC TEES</h2>
+              <p>COMFORT MEETS STREET STYLE</p>
+              <a href="shop.html" class="slide-cta">Shop Now</a>
+            </div>
+            <div class="slide-image-container">
+              <img src="images/Oversizedtee.jpg" alt="Oversized Tee Left View" class="slide-image left-image">
+              <img src="images/graphic-tee.jpg" alt="Graphic Tee Right View" class="slide-image right-image">
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Slider Navigation -->
+      <div class="slider-nav">
+        <button class="prev-slide"><i class="fas fa-chevron-left"></i></button>
+        <div class="slider-dots">
+          <span class="slider-dot active" data-slide="0"></span>
+          <span class="slider-dot" data-slide="1"></span>
+          <span class="slider-dot" data-slide="2"></span>
+        </div>
+        <button class="next-slide"><i class="fas fa-chevron-right"></i></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero">
+    <h1>Unleash Your Streetwear</h1>
+    <p>Drop your style. Raise the vibe.</p>
+  </section>
+
+  <section id="collection" class="product-grid">
+    <!-- Products -->
+    <div class="product-card">
+      <img src="images/streetstylehoodie.jpg.jpg" alt="Street Hoodie" />
+      <h3>Street Hoodie</h3>
+      <p class="price">₹1,299</p>
+      <button class="add-to-cart" data-product="1">Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+      <img src="images/Oversizedtee.jpg" alt="Oversized Tee" />
+      <h3>Oversized Tee</h3>
+      <p class="price">₹999</p>
+      <button class="add-to-cart" data-product="2">Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+      <img src="images/Cargopants.jpg" alt="Cargo Pants" />
+      <h3>Cargo Pants</h3>
+      <p class="price">₹1,499</p>
+      <button class="add-to-cart" data-product="3">Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+      <img src="images/Graphichoodie.jpg" alt="Graphic Hoodie" />
+      <h3>Graphic Hoodie</h3>
+      <p class="price">₹1,599</p>
+      <button class="add-to-cart" data-product="4">Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+      <img src="images/denim-jacket.jpg" alt="Denim Jacket" />
+      <h3>Denim Jacket</h3>
+      <p class="price">₹1,799</p>
+      <button class="add-to-cart" data-product="5">Add to Cart</button>
+    </div>
+  
+    <div class="product-card">
+      <img src="images/beanie.jpg" alt="Beanie" />
+      <h3>Beanie</h3>
+      <p class="price">₹499</p>
+      <button class="add-to-cart" data-product="6">Add to Cart</button>
+    </div>
+  
+    <div class="product-card">
+      <img src="images/sneakers.jpg" alt="Street Sneakers" />
+      <h3>Street Sneakers</h3>
+      <p class="price">₹2,999</p>
+      <button class="add-to-cart" data-product="7">Add to Cart</button>
+    </div>
+  
+    <div class="product-card">
+      <img src="images/crossbody-bag.jpg" alt="Crossbody Bag" />
+      <h3>Crossbody Bag</h3>
+      <p class="price">₹899</p>
+      <button class="add-to-cart" data-product="8">Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+      <img src="images/ripped-jeans.jpg" alt="Ripped Jeans" />
+      <h3>Ripped Jeans</h3>
+      <p class="price">₹1,299</p>
+      <button class="add-to-cart" data-product="9">Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+      <img src="images/bucket-hat.jpg" alt="Bucket Hat" />
+      <h3>Bucket Hat</h3>
+      <p class="price">₹499</p>
+      <button class="add-to-cart" data-product="10">Add to Cart</button>
+    </div>
+  </section>
+
+  <div class="view-all-container">
+    <a href="shop.html" class="view-all-button">
+      View All Products <i class="fa fa-arrow-right"></i>
+    </a>
+  </div>
+
+  <footer class="site-footer">
+    <div class="newsletter">
+      <h2>JOIN THE NEWSLETTER FOR EXCLUSIVE UPDATES</h2>
+      <div class="subscribe-box">
+        <input type="email" placeholder="Your email address" />
+        <button>SUBSCRIBE →</button>
+      </div>
+    </div>
+  
+    <div class="footer-grid">
+      <div class="footer-column">
+        <h4>Cool Stuff</h4>
+        <ul>
+          <li>About Us</li>
+          <li>Blog</li>
+          <li>New Arrivals</li>
+          <li>Apparel</li>
+          <li>Accessories</li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Boring Stuff</h4>
+        <ul>
+          <li>Track Order</li>
+          <li>Returns</li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Legal</h4>
+        <ul>
+          <li>Terms & Conditions</li>
+          <li>Privacy Policy</li>
+          <li>Shipping Policy</li>
+          <li>Returns Policy</li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Let's Connect</h4>
+        <ul>
+          <li>WhatsApp</li>
+          <li>Email</li>
+          <li>Contact Us</li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Store Locator</h4>
+        <ul>
+          <li>Mumbai</li>
+          <li>Bangalore</li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
